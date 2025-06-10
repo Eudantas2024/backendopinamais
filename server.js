@@ -1,5 +1,3 @@
-// server.js
-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -15,7 +13,11 @@ const PORT = process.env.PORT || 3005;
 startDatabase();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://guileless-pudding-f723e6.netlify.app", // sem barra no final
+  credentials: true
+}));
+
 app.use(express.json()); // Para requisições JSON
 app.use(express.urlencoded({ extended: true })); // Para formulários URL encoded
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Servir arquivos estáticos (uploads)
@@ -25,14 +27,6 @@ const adminRoutes = require("./routes/adminRoutes");
 const consumidorRoutes = require("./routes/consumidorRoutes");
 const empresaRoutes = require("./routes/empresaRoutes");
 const reclamacaoRoutes = require("./routes/reclamacaoRoutes");
-
-
-const cors = require("cors");
-app.use(cors({
-  origin: ["https://guileless-pudding-f723e6.netlify.app/"], // coloque seu domínio real aqui
-  credentials: true
-}));
-
 
 // Uso das rotas com prefixos
 app.use("/api/admin", adminRoutes);

@@ -85,7 +85,6 @@ async function listarReclamacoesPendentes(req, res) {
   }
 }
 
-// Aprovar reclamação (admin)
 async function aprovarReclamacao(req, res) {
   try {
     const { id } = req.params;
@@ -98,6 +97,17 @@ async function aprovarReclamacao(req, res) {
     reclamacao.publicada = true;
     await reclamacao.save();
 
+    // Enviar email para o consumidor informando que foi aprovada
+    await enviarEmail(
+      reclamacao.email,
+      "Sua reclamação foi aprovada!",
+      `<h3>Olá ${reclamacao.username},</h3>
+      <p>Informamos que sua reclamação intitulada <strong>"${reclamacao.titulo}"</strong> foi <strong>aprovada</strong> e agora está visível publicamente no Opina +.</p>
+      <p>Agradecemos por sua contribuição para uma sociedade mais justa!</p>
+      <hr/>
+      <p style="font-size: 12px; color: #888;">Este é um e-mail automático. Por favor, não responda.</p>`
+    );
+
     res.json({ message: "Reclamação aprovada com sucesso." });
   } catch (error) {
     console.error("Erro ao aprovar reclamação:", error);
@@ -105,7 +115,7 @@ async function aprovarReclamacao(req, res) {
   }
 }
 
-// Excluir reclamação (admin)
+
 async function excluirReclamacao(req, res) {
   try {
     const { id } = req.params;
@@ -115,12 +125,24 @@ async function excluirReclamacao(req, res) {
       return res.status(404).json({ error: "Reclamação não encontrada." });
     }
 
+    // Enviar email informando que a reclamação foi removida
+    await enviarEmail(
+      reclamacao.email,
+      "Sua reclamação foi removida",
+      `<h3>Olá ${reclamacao.username},</h3>
+      <p>Sua reclamação intitulada <strong>"${reclamacao.titulo}"</strong> foi <strong>removida</strong> pela moderação da plataforma Opina +.</p>
+      <p>Caso deseje mais informações, entre em contato com nosso suporte.</p>
+      <hr/>
+      <p style="font-size: 12px; color: #888;">Este é um e-mail automático. Por favor, não responda.</p>`
+    );
+
     res.json({ message: "Reclamação excluída com sucesso." });
   } catch (error) {
     console.error("Erro ao excluir reclamação:", error);
     res.status(500).json({ error: "Erro ao excluir reclamação." });
   }
 }
+
 
 // Listar reclamações do usuário autenticado
 async function listarReclamacoesDoUsuario(req, res) {

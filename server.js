@@ -26,6 +26,14 @@ const consumidorRoutes = require("./routes/consumidorRoutes");
 const empresaRoutes = require("./routes/empresaRoutes");
 const reclamacaoRoutes = require("./routes/reclamacaoRoutes");
 
+
+const cors = require("cors");
+app.use(cors({
+  origin: ["https://guileless-pudding-f723e6.netlify.app/"], // coloque seu domínio real aqui
+  credentials: true
+}));
+
+
 // Uso das rotas com prefixos
 app.use("/api/admin", adminRoutes);
 app.use("/api/consumidor", consumidorRoutes);

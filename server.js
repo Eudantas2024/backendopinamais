@@ -12,9 +12,25 @@ const PORT = process.env.PORT || 3005;
 // Conectar ao banco de dados MongoDB
 startDatabase();
 
-// Middlewares
+// Configuração CORS para aceitar localhost e produção
+const allowedOrigins = [
+  "https://guileless-pudding-f723e6.netlify.app", // produção
+  "http://localhost:5173",
+  "http://localhost:5174"
+   // frontend local Vite padrão
+];
+
 app.use(cors({
-  origin: "https://guileless-pudding-f723e6.netlify.app", // sem barra no final
+  origin: function(origin, callback){
+    // Permite requisições sem origem (ex: Postman, curl)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = `CORS policy: The origin ${origin} is not allowed.`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   credentials: true
 }));
 

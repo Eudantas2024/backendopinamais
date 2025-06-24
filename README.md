@@ -51,9 +51,6 @@ O Frontend está hospedado em outra pasta aqui no GitHub para poder ser execudad
 
 ### 🖥️ Backend (Servidor Express)
 
-```bash
-npm run dev
-```
 
 O servidor será iniciado em `http://localhost:3005/` (ou conforme configurado), por conta da versão do frontend está sendo executada no Netlify, o backend também está sendo 
 executado na Web, no endereço  `https://backendopinamais.onrender.com`, ele funciona tanto na versão localhost quanto na versão que está no Render. Se for usar na versão localhost abrir o terminal e usar o comando:

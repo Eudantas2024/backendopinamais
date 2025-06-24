@@ -1,4 +1,5 @@
-# 📢 OPINA+ — Sistema de Ouvidoria Digital
+# 📢 OPINA+   
+Sistema de Ouvidoria Digital
 
 Sistema completo de ouvidoria para registro, moderação e exibição pública de reclamações ou sugestões. Desenvolvido com **React** no frontend e **Node.js + MongoDB** no backend.
 

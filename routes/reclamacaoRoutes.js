@@ -12,11 +12,14 @@
     aprovarReclamacao,
     excluirReclamacao,
     listarReclamacoesDoUsuario,
+    obterReclamacaoAprovadaPorId,
   } = require("../controllers/reclamacaoController");
 
   // Rotas consumidor
   router.post("/upload", autenticarUsuario, upload.array("anexos", 5), criarReclamacao); // Limite de até 5 arquivos
   router.get("/aprovadas", listarReclamacoesAprovadas);
+  router.get("/aprovadas/:id", obterReclamacaoAprovadaPorId); // ✅ nova rota
+
   router.get("/minhas", autenticarUsuario, listarReclamacoesDoUsuario);
 
   // Rotas admin

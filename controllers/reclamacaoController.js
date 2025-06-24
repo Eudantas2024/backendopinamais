@@ -159,6 +159,25 @@ async function listarReclamacoesDoUsuario(req, res) {
   }
 }
 
+
+// Obter uma reclamação aprovada por ID
+async function obterReclamacaoAprovadaPorId(req, res) {
+  try {
+    const { id } = req.params;
+    const reclamacao = await Reclamacao.findOne({ _id: id, publicada: true });
+
+    if (!reclamacao) {
+      return res.status(404).json({ error: "Reclamação aprovada não encontrada." });
+    }
+
+    res.json(reclamacao);
+  } catch (error) {
+    console.error("Erro ao obter reclamação aprovada por ID:", error);
+    res.status(500).json({ error: "Erro ao buscar a reclamação aprovada." });
+  }
+}
+
+
 module.exports = {
   criarReclamacao,
   listarReclamacoesAprovadas,
@@ -166,4 +185,5 @@ module.exports = {
   aprovarReclamacao,
   excluirReclamacao,
   listarReclamacoesDoUsuario,
+  obterReclamacaoAprovadaPorId,
 };

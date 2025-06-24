@@ -43,7 +43,9 @@ npm run dev
 
 O sistema será iniciado geralmente em `http://localhost:5173/`.
 No entanto essa versão do Frontend está sendo executada na web através do NetLify pelo link 
-`https://guileless-pudding-f723e6.netlify.app`
+``
+
+[NetLify Opina +](https://guileless-pudding-f723e6.netlify.app)
 
 ### 🖥️ Backend (Servidor Express)
 
@@ -128,3 +130,8 @@ Em caso de dúvidas ou sugestões, entre em contato pelo e-mail:
 
 📘 *Técnico de Informática — SENAC Campinas*  
 📅 *Junho de 2025*
+
+
+## 🛡️ Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).

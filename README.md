@@ -37,15 +37,16 @@ npm install
 
 ### ▶️ Frontend (React)
 
-```bash
-npm run dev
-```
 
-O sistema será iniciado geralmente em `http://localhost:5173/`.
-No entanto essa versão do Frontend está sendo executada na web através do NetLify pelo link 
-``
+
+Nesse projeto o Frontend está sendo executado na web, no NetLify, acesse pelo link abaixo:
 
 [NetLify Opina +](https://guileless-pudding-f723e6.netlify.app)
+
+O Frontend está hospedado em outra pasta aqui no GitHub para poder ser execudado no Netlify, se quiser acessá-lo acesse o link abaixo:
+[https://github.com/Eudantas2024/frontendopinamais](https://github.com/Eudantas2024/frontendopinamais).
+
+
 
 ### 🖥️ Backend (Servidor Express)
 
@@ -54,7 +55,13 @@ npm run dev
 ```
 
 O servidor será iniciado em `http://localhost:3005/` (ou conforme configurado), por conta da versão do frontend está sendo executada no Netlify, o backend também está sendo 
-executado na Web, no endereço   `https://backendopinamais.onrender.com`, ele funciona tanto na versão localhost quanto na versão que está no Render.
+executado na Web, no endereço  `https://backendopinamais.onrender.com`, ele funciona tanto na versão localhost quanto na versão que está no Render. Se for usar na versão localhost abrir o terminal e usar o comando:
+
+```bash
+npm run dev
+```
+
+
 
 ---
 

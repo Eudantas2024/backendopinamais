@@ -44,8 +44,8 @@ Nesse projeto o Frontend está sendo executado na web, no NetLify, acesse pelo l
 
 [NetLify Opina +](https://guileless-pudding-f723e6.netlify.app)
 
-O Frontend está hospedado em outra pasta aqui no GitHub para poder ser execudado no Netlify, se quiser acessá-lo acesse o link abaixo:
-[https://github.com/Eudantas2024/frontendopinamais](https://github.com/Eudantas2024/frontendopinamais).
+O Frontend para uso em localhost, está salvo no GitHub em uma pasta denominda front24062025 para  acessá-lo acesse o link abaixo:
+[https://github.com/Eudantas2024/front24062025](https://github.com/Eudantas2024/front24062025).
 
 
 

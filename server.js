@@ -15,6 +15,7 @@ startDatabase();
 // Configuração CORS para aceitar localhost e produção
 const allowedOrigins = [
   "https://guileless-pudding-f723e6.netlify.app", // produção
+  "https://opina-mais.netlify.app",
   "http://localhost:5173",
   "http://localhost:5174"
    // frontend local Vite padrão
